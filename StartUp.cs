@@ -16,6 +16,9 @@ namespace webApi
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
 
+            // Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            Services.AddAutoMapper(typeof(StartUp));
+
             Services.AddEndpointsApiExplorer();
             Services.AddSwaggerGen();
             Services.AddControllers().AddJsonOptions(options =>
