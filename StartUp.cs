@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using webApi.Database;
 
@@ -17,7 +18,10 @@ namespace webApi
 
             Services.AddEndpointsApiExplorer();
             Services.AddSwaggerGen();
-            Services.AddControllers();
+            Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
         }
 
         public void Configure(IWebHostEnvironment env, IApplicationBuilder app)
