@@ -1,5 +1,7 @@
 
 using AutoMapper;
+using webApi.DTO;
+using webApi.Entities;
 
 namespace webApi.DTOMapps
 {
@@ -9,6 +11,9 @@ namespace webApi.DTOMapps
         public AutoMapperProfile()
         {
             // Create a new mapping configuration
+            CreateMap<CreateAuthorDTO, Author>();
+            CreateMap<Author, AuthorDTO>();
+            CreateMap<UpdateAuthorDTO, Author>();
         }
     }
 
